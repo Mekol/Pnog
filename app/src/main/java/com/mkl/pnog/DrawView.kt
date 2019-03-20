@@ -8,8 +8,9 @@ import android.view.View
 import java.security.AccessControlContext
 
 class DrawView(context: Context) : View(context) {
+    var test = false
+    var add = 10;
 
-val paint = Paint()
 
 
 
@@ -20,13 +21,17 @@ val paint = Paint()
 
     override fun onDraw(canvas: Canvas?) {
        // super.onDraw(canvas)
-        canvas?.drawRGB (255, 255, 255)
-        val width = getWidth ()
-        val hieght = getHeight ()
-        val brush1 = Paint ()
-        brush1.setARGB (255, 255, 0, 0)
-        brush1.setStyle (Paint.Style.STROKE)
-        for (f in 0..9)
-            canvas?.drawCircle ((width / 2) .toFloat (), (hieght / 2) .toFloat (), (f * 15) .toFloat (), brush1)
+        if(test) {
+            canvas?.drawRGB(255, 255, 255)
+            val width = getWidth()
+            val hieght = getHeight()
+            val brush1 = Paint()
+            brush1.setARGB(255, 255, 0, 0)
+            brush1.setStyle(Paint.Style.STROKE)
+            for (f in 0..9)
+                canvas?.drawCircle((width / 2).toFloat()+add, (hieght / 2).toFloat()+add, (f * 15).toFloat(), brush1)
+
+            canvas?.drawPoint(Math.random().toFloat() * width, Math.random().toFloat() * height, brush1)
+        }
     }
 }
