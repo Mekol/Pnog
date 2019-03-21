@@ -4,4 +4,9 @@
     <string name="title_activity_game1p">Game1pActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="right">Right</string>
+    <string name="left">Left</string>
+    <string name="exit">Exit</string>
+    <string name="_2_players">2 Players</string>
+    <string name="_1_player">1 Player</string>
 </resources>
