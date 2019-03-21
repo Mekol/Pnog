@@ -2,10 +2,7 @@ package com.mkl.pnog
 
 import android.app.Activity
 import android.content.Intent
-
 import android.os.Bundle
-import android.view.Window
-import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
@@ -15,11 +12,11 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
 
         button1p.setOnClickListener {
-            val intent = Intent(this,game1p::class.java)
+            val intent = Intent(this, game1p::class.java)
             startActivity(intent)
         }
 
-        buttonExit.setOnClickListener{
+        buttonExit.setOnClickListener {
             finish()
             System.exit(0)
         }

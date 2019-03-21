@@ -13,11 +13,11 @@ class game1p : Activity() {
         val gameView = findViewById<DrawView>(R.id.dV)
 
 
-        buttonLeft.setOnClickListener{
-            gameView.test=true
-            gameView.add+=10
-            gameView.invalidate()
+        buttonLeft.setOnClickListener {
+            gameView.test = true
+            gameView.add += 10
+            // gameView.invalidate()
         }
-        
+
     }
 }
