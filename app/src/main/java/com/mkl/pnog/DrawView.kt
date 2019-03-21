@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import java.security.AccessControlContext
 
-class DrawView(context: Context) : View(context) {
+class DrawView(context: Context, attrs: AttributeSet) : View(context,attrs) {
     var test = false
     var add = 10;
 
