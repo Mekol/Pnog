@@ -21,7 +21,7 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
             redrawHandler.postDelayed(this, 33)
         }
     }
-    var ball = Ball(this.height, this.width)
+    lateinit var ball: Ball
 
     init {
 
@@ -34,15 +34,22 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     var X = width / 2
     var moveLeft = false
     var moveRight = false
+    var once = true
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
+        var _height = height
+        var _width = width
         //Log.d("redrv","redrawing")
         //Log.d("drawview","$this.height , $this.width")
+        if (once) {
+            ball = Ball(_height.toFloat(), _width.toFloat())
+            once = false
+        }
 
         canvas?.drawRGB(255, 255, 255)
 
-        val _height = height
-        Log.d("height tag:", "$_height")
+
+        //Log.d("height tag:", "$_height")
         val brush1 = Paint()
         brush1.setARGB(255, 255, 0, 0)
         brush1.style = Paint.Style.STROKE

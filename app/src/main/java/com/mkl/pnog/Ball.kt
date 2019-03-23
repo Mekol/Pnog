@@ -3,13 +3,14 @@ package com.mkl.pnog
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.Log
+import java.lang.Math.random
 import kotlin.math.cos
 import kotlin.math.sin
 
-class Ball(val parentHeight: Int, val parentWidth: Int) {
+class Ball(val parentHeight: Float, val parentWidth: Float) {
 
-    var xPos = 500
-    var yPos = 100
+    var xPos = 500f
+    var yPos = 100f
     var ySpeed = 0f
     var xSpeed = 0f
     var radius = 20
@@ -23,13 +24,14 @@ class Ball(val parentHeight: Int, val parentWidth: Int) {
     fun reset() {
         xPos = parentWidth / 2
         yPos = parentHeight / 2
-        xSpeed = (5 * cos(0f))
-        ySpeed = (5 * sin(0f))
+
+        xSpeed = (5 * cos(random().toFloat()))
+        ySpeed = (5 * sin(random().toFloat()))
     }
 
     fun update() {
-        xPos += xSpeed.toInt()
-        yPos += ySpeed.toInt()
+        xPos += xSpeed
+        yPos += ySpeed
     }
 
     fun draw(canvas: Canvas?) {
@@ -45,8 +47,9 @@ class Ball(val parentHeight: Int, val parentWidth: Int) {
     }
 
     fun checkEdges() {
-        if (yPos < 0 || yPos > parentHeight) {
-            ySpeed *= -1
+        Log.d("edge", "$xPos $yPos    $parentWidth")
+        if (xPos < 0 || xPos > parentWidth) {
+            xSpeed *= -1
             Log.d("edge", "edge")
         }
     }
