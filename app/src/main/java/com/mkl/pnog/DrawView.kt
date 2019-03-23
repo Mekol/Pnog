@@ -16,9 +16,10 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         override fun run() {
             add++
             invalidate()
-            redrawHandler.postDelayed(this, 200)
+            redrawHandler.postDelayed(this, 33)
         }
     }
+
     init {
         redraw.run()
     }
