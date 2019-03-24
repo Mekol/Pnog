@@ -65,6 +65,7 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         val brush1 = Paint()
         brush1.setARGB(255, 255, 0, 0)
         brush1.style = Paint.Style.STROKE
+        brush1.textSize = 20f
         canvas?.drawText(secElapsed.toString(), 100f, 100f, brush1)
 
         if (moveLeft && !moveRight) p.movement = -10
