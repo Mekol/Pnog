@@ -41,7 +41,7 @@
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp" style="@android:style/Widget.Holo.Button"/>
         <TextView
-                android:text="Pnog"
+                android:text="@string/pnog"
                 android:layout_width="145dp"
                 android:layout_height="101dp"
                 android:id="@+id/textViewTitle"

@@ -37,7 +37,7 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     init {
 
-        
+
         redrawHandler.post(redraw)
         timerHandler.post(secElapsedTimer)
         Log.d("drawview", "$this.height , $this.width")
@@ -92,25 +92,5 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
 
     }
-///https://stackoverflow.com/questions/3591784/views-getwidth-and-getheight-returns-0
-//    fun <T : View> T.height(function: (Int) -> Unit) {
-//        if (height == 0)
-//            viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-//                override fun onGlobalLayout() {
-//                    viewTreeObserver.removeOnGlobalLayoutListener(this)
-//                    function(height)
-//                }
-//            })
-//        else function(height)
-//    }
-//    fun <T : View> T.width(function: (Int) -> Unit) {
-//        if (width == 0)
-//            viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-//                override fun onGlobalLayout() {
-//                    viewTreeObserver.removeOnGlobalLayoutListener(this)
-//                    function(width)
-//                }
-//            })
-//        else function(width)
-//    }
+
 }

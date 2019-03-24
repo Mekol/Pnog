@@ -9,8 +9,8 @@ import kotlin.math.sin
 
 class Ball(val parentHeight: Float, val parentWidth: Float) {
 
-    var xPos = 500f
-    var yPos = 100f
+    var xPos = 0f
+    var yPos = 0f
     var ySpeed = 0f
     var xSpeed = 0f
     var radius = 20
@@ -37,7 +37,7 @@ class Ball(val parentHeight: Float, val parentWidth: Float) {
     fun draw(canvas: Canvas?) {
         val brush1 = Paint()
         brush1.setARGB(255, 255, 0, 0)
-        brush1.style = Paint.Style.STROKE
+        brush1.style = Paint.Style.FILL_AND_STROKE
         canvas?.drawCircle(
             xPos.toFloat(),
             yPos.toFloat(),
