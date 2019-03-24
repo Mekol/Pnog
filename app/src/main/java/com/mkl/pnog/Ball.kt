@@ -57,4 +57,12 @@ class Ball(val parentHeight: Float, val parentWidth: Float) {
             Log.d("edge", "edge")
         }
     }
+
+    fun detectCollisionWithPlayer(p: Player) {
+        if (xPos > p.rect.left && xPos < p.rect.right && yPos + radius > p.rect.top) {
+            xSpeed *= -1
+            ySpeed *= -1
+        }
+
+    }
 }

@@ -67,25 +67,13 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         brush1.style = Paint.Style.STROKE
         canvas?.drawText(secElapsed.toString(), 100f, 100f, brush1)
 
-        if (moveLeft == true && moveRight == false) p.movement = -10
-        if (moveLeft == false && moveRight == true) p.movement = 10
+        if (moveLeft && !moveRight) p.movement = -10
+        if (!moveLeft && moveRight) p.movement = 10
 
-        //Log.d("height tag:", "$_height")
-//        val brush1 = Paint()
-//        brush1.setARGB(255, 255, 0, 0)
-//        brush1.style = Paint.Style.STROKE
-//        if (moveLeft == true && moveRight == false) X -= 10
-//        if (moveLeft == false && moveRight == true) X += 10
-//
-//        canvas?.drawCircle(
-//            X.toFloat(),
-//            (_height / 2).toFloat(),
-//            300f,
-//            brush1
-//        )
         p.update()
         p.draw(canvas)
 
+        ball.detectCollisionWithPlayer(p)
         ball.update()
         ball.checkEdges()
         ball.draw(canvas)

@@ -37,7 +37,7 @@ class Player(val parentHeight: Float, val parentWidth: Float) {
     }
 
     fun move(x: Int): Unit {
-        if (rect.left == 0 && x < 0) return
+        if (rect.left <= 0 && x < 0) return
         if (rect.right >= parentWidth && x > 0) return
         rect.left = rect.left + x
         rect.right = rect.right + x
