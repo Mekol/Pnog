@@ -2,7 +2,6 @@ package com.mkl.pnog
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Paint
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
@@ -50,21 +49,23 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
         canvas?.drawRGB(255, 255, 255)
 
+        if (moveLeft == true && moveRight == false) p.movement = -5
+        if (moveLeft == false && moveRight == true) p.movement = 5
 
         //Log.d("height tag:", "$_height")
-        val brush1 = Paint()
-        brush1.setARGB(255, 255, 0, 0)
-        brush1.style = Paint.Style.STROKE
-        if (moveLeft == true && moveRight == false) X -= 10
-        if (moveLeft == false && moveRight == true) X += 10
-
-        canvas?.drawCircle(
-            X.toFloat(),
-            (_height / 2).toFloat(),
-            300f,
-            brush1
-        )
-
+//        val brush1 = Paint()
+//        brush1.setARGB(255, 255, 0, 0)
+//        brush1.style = Paint.Style.STROKE
+//        if (moveLeft == true && moveRight == false) X -= 10
+//        if (moveLeft == false && moveRight == true) X += 10
+//
+//        canvas?.drawCircle(
+//            X.toFloat(),
+//            (_height / 2).toFloat(),
+//            300f,
+//            brush1
+//        )
+        p.update()
         p.draw(canvas)
 
         ball.update()

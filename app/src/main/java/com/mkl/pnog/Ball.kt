@@ -48,7 +48,7 @@ class Ball(val parentHeight: Float, val parentWidth: Float) {
 
     fun checkEdges() {
         Log.d("edge", "$xPos $yPos    $parentWidth")
-        if (xPos < 0 + radius + 29 || xPos > parentWidth - radius - 29) {
+        if (xPos < 0 + radius || xPos > parentWidth - radius) {
             xSpeed *= -1
             Log.d("edge", "edge")
         }

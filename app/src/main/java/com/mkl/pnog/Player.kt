@@ -9,6 +9,7 @@ class Player(val parentHeight: Float, val parentWidth: Float) {
     val playerWidth = 150
     val playerHeight = 10
     lateinit var rect: Rect
+    var movement = 0
 
     init {
         rect = Rect(
@@ -24,7 +25,8 @@ class Player(val parentHeight: Float, val parentWidth: Float) {
     }
 
     fun update() {
-
+        move(movement)
+        movement = 0
     }
 
     fun draw(canvas: Canvas?) {
@@ -32,6 +34,14 @@ class Player(val parentHeight: Float, val parentWidth: Float) {
         brush1.setARGB(255, 255, 0, 0)
         brush1.style = Paint.Style.STROKE
         canvas?.drawRect(rect, brush1)
+    }
+
+    fun move(x: Int): Unit {
+        if (rect.left == 0 && x < 0) return
+        if (rect.right >= parentWidth && x > 0) return
+        rect.left = rect.left + x
+        rect.right = rect.right + x
+
     }
 
 }
