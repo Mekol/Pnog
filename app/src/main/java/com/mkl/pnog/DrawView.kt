@@ -22,6 +22,7 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         }
     }
     lateinit var ball: Ball
+    lateinit var p: Player
 
     init {
 
@@ -44,6 +45,7 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         if (once) {
             ball = Ball(_height.toFloat(), _width.toFloat())
             once = false
+            p = Player(_height.toFloat(), _width.toFloat())
         }
 
         canvas?.drawRGB(255, 255, 255)
@@ -63,6 +65,7 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
             brush1
         )
 
+        p.draw(canvas)
 
         ball.update()
         ball.checkEdges()
