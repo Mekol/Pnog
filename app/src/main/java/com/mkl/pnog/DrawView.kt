@@ -11,7 +11,7 @@ import android.view.View
 
 
 class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
-    var test = true
+
     var add = 10
     val redrawHandler = Handler(Looper.getMainLooper())
     val redraw = object : Runnable {

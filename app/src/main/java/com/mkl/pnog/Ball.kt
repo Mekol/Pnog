@@ -25,8 +25,8 @@ class Ball(val parentHeight: Float, val parentWidth: Float) {
         xPos = parentWidth / 2
         yPos = parentHeight / 2
 
-        xSpeed = (5 * cos(random().toFloat()))
-        ySpeed = (5 * sin(random().toFloat()))
+        xSpeed = (10 * cos(random().toFloat()))
+        ySpeed = (10 * sin(random().toFloat()))
     }
 
     fun update() {
@@ -48,8 +48,12 @@ class Ball(val parentHeight: Float, val parentWidth: Float) {
 
     fun checkEdges() {
         Log.d("edge", "$xPos $yPos    $parentWidth")
-        if (xPos < 0 || xPos > parentWidth) {
+        if (xPos < 0 + radius + 29 || xPos > parentWidth - radius - 29) {
             xSpeed *= -1
+            Log.d("edge", "edge")
+        }
+        if (yPos < 0 + radius || yPos > parentHeight - radius) {
+            ySpeed *= -1
             Log.d("edge", "edge")
         }
     }
