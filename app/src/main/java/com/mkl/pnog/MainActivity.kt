@@ -12,7 +12,12 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
 
         button1p.setOnClickListener {
-            val intent = Intent(this, game1p::class.java)
+            val intent = Intent(this, Game1p::class.java)
+            startActivity(intent)
+        }
+
+        button2p.setOnClickListener {
+            val intent = Intent(this, Game2p::class.java)
             startActivity(intent)
         }
 

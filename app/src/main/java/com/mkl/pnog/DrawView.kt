@@ -12,6 +12,8 @@ import android.view.View
 
 class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
+
+    var playerCollisionCounter = 0
     var add = 10
     val redrawHandler = Handler(Looper.getMainLooper())
     val redraw = object : Runnable {
@@ -56,7 +58,8 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         //Log.d("redrv","redrawing")
         //Log.d("drawview","$this.height , $this.width")
         if (once) {
-            ball = Ball(_height.toFloat(), _width.toFloat())
+            ball = Ball(_height.toFloat(), _width.toFloat(), context, this)
+            // ball.addParameters(secElapsed)
             once = false
             p = Player(_height.toFloat(), _width.toFloat())
         }

@@ -6,13 +6,18 @@ import android.view.MotionEvent
 import android.view.View
 import kotlinx.android.synthetic.main.activity_game1p.*
 
-class game1p : Activity() {
+class Game1p : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game1p)
-
         val gameView = findViewById<DrawView>(R.id.dV)
+        gameView.tag = "1"
+
+
+
+
+
 
         buttonLeftDown.setOnTouchListener(View.OnTouchListener { v, event ->
             when (event.action) {
