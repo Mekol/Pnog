@@ -21,7 +21,7 @@ class Player(val parentHeight: Float, val parentWidth: Float, val isUp: Boolean)
         else
             rect = Rect(
                 ((parentWidth - playerWidth) / 2).toInt(),
-                30,
+                playerHeight,
                 (((parentWidth - playerWidth) / 2) + playerWidth).toInt(), (playerHeight + 30).toInt()
             )
 
