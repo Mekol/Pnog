@@ -25,7 +25,8 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     }
 
     lateinit var ball: Ball
-    lateinit var p: Player
+    lateinit var pDown: Player
+    lateinit var pUp: Player
     var secElapsed = 0
     val timerHandler = Handler()
     val secElapsedTimer = object : Runnable {
@@ -48,8 +49,10 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     }
 
     var X = width / 2
-    var moveLeft = false
-    var moveRight = false
+    var moveLeftDown = false
+    var moveRightDown = false
+    var moveLeftUp = false
+    var moveRightUp = false
     var once = true
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
@@ -60,8 +63,12 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         if (once) {
             ball = Ball(_height.toFloat(), _width.toFloat(), context, this)
             // ball.addParameters(secElapsed)
+
+            pDown = Player(_height.toFloat(), _width.toFloat(), false)
+            if (!ball.gametype1)
+                pUp = Player(_height.toFloat(), _width.toFloat(), true)
+
             once = false
-            p = Player(_height.toFloat(), _width.toFloat())
         }
 
         canvas?.drawRGB(255, 255, 255)
@@ -71,13 +78,19 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         brush1.textSize = 20f
         canvas?.drawText(secElapsed.toString(), 100f, 100f, brush1)
 
-        if (moveLeft && !moveRight) p.movement = -10
-        if (!moveLeft && moveRight) p.movement = 10
+        if (moveLeftDown && !moveRightDown) pDown.movement = -20
+        if (!moveLeftDown && moveRightDown) pDown.movement = 20
+        if (::pUp.isInitialized) {
+            if (moveLeftUp && !moveRightUp) pUp.movement = -20
+            if (!moveLeftUp && moveRightUp) pUp.movement = 20
+        }
 
-        p.update()
-        p.draw(canvas)
+        pDown.update()
+        if (::pUp.isInitialized) pUp.update()
+        pDown.draw(canvas)
+        if (::pUp.isInitialized) pUp.draw(canvas)
 
-        ball.detectCollisionWithPlayer(p)
+        ball.detectCollisionWithPlayer(pDown)
         ball.update()
         ball.checkEdges()
         ball.draw(canvas)

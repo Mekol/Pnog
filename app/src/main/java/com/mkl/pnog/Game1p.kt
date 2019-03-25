@@ -22,10 +22,10 @@ class Game1p : Activity() {
         buttonLeftDown.setOnTouchListener(View.OnTouchListener { v, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    gameView.moveLeft = true
+                    gameView.moveLeftDown = true
                 }
                 MotionEvent.ACTION_UP -> {
-                    gameView.moveLeft = false
+                    gameView.moveLeftDown = false
                 }
             }
             return@OnTouchListener true
@@ -34,10 +34,10 @@ class Game1p : Activity() {
         buttonRightDown.setOnTouchListener(View.OnTouchListener { v, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    gameView.moveRight = true
+                    gameView.moveRightDown = true
                 }
                 MotionEvent.ACTION_UP -> {
-                    gameView.moveRight = false
+                    gameView.moveRightDown = false
                 }
 
             }

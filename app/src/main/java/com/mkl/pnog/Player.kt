@@ -4,7 +4,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
 
-class Player(val parentHeight: Float, val parentWidth: Float) {
+class Player(val parentHeight: Float, val parentWidth: Float, val isUp: Boolean) {
 
     val playerWidth = 150
     val playerHeight = 10
@@ -12,11 +12,18 @@ class Player(val parentHeight: Float, val parentWidth: Float) {
     var movement = 0
 
     init {
-        rect = Rect(
-            ((parentWidth - playerWidth) / 2).toInt(),
-            (parentHeight - playerHeight - 30).toInt(),
-            (((parentWidth - playerWidth) / 2) + playerWidth).toInt(), (parentHeight - playerHeight).toInt()
-        )
+        if (!isUp)
+            rect = Rect(
+                ((parentWidth - playerWidth) / 2).toInt(),
+                (parentHeight - playerHeight - 30).toInt(),
+                (((parentWidth - playerWidth) / 2) + playerWidth).toInt(), (parentHeight - playerHeight).toInt()
+            )
+        else
+            rect = Rect(
+                ((parentWidth - playerWidth) / 2).toInt(),
+                30,
+                (((parentWidth - playerWidth) / 2) + playerWidth).toInt(), (playerHeight + 30).toInt()
+            )
 
     }
 

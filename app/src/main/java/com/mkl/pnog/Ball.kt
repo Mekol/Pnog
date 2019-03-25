@@ -43,6 +43,8 @@ class Ball(
     fun update() {
         xPos += xSpeed
         yPos += ySpeed
+        xSpeed *= 1.001f
+        ySpeed *= 1.001f
     }
 
     fun draw(canvas: Canvas?) {
@@ -70,6 +72,7 @@ class Ball(
             }
             // ySpeed *= -1
             parent.redrawHandler.removeCallbacks(null)
+            parent.timerHandler.removeCallbacks(null)
             val intent = Intent(context, EndGame::class.java)
             var b = Bundle()
             b.putInt("secs", parent.secElapsed)
