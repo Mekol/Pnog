@@ -91,6 +91,7 @@ class DrawView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         if (::pUp.isInitialized) pUp.draw(canvas)
 
         ball.detectCollisionWithPlayer(pDown)
+        if (::pUp.isInitialized) ball.detectCollisionWithPlayer(pUp)
         ball.update()
         ball.checkEdges()
         ball.draw(canvas)

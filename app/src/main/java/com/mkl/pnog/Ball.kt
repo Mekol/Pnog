@@ -86,6 +86,15 @@ class Ball(
     }
 
     fun detectCollisionWithPlayer(p: Player) {
+        if (p.isUp) {
+            if (xPos > p.rect.left && xPos < p.rect.right && yPos - radius < p.rect.bottom) {
+                xSpeed *= -1
+                ySpeed *= -1
+                parent.playerCollisionCounter++
+
+            }
+            return
+        }
         if (xPos > p.rect.left && xPos < p.rect.right && yPos + radius > p.rect.top) {
             xSpeed *= -1
             ySpeed *= -1
