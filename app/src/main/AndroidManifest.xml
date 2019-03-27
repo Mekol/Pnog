@@ -11,10 +11,10 @@
             android:theme="@style/AppTheme">
 
         <activity android:name=".EndGame"
-                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">>
+                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
         </activity>
         <activity android:name=".Game2p"
-                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">>
+                  android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
         </activity>
         <activity
                 android:name=".Game1p"

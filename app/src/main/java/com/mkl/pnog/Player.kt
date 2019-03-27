@@ -8,7 +8,7 @@ class Player(val parentHeight: Float, val parentWidth: Float, val isUp: Boolean)
 
     val playerWidth = 150
     val playerHeight = 10
-    lateinit var rect: Rect
+    var rect: Rect
     var movement = 0
 
     init {
@@ -38,8 +38,11 @@ class Player(val parentHeight: Float, val parentWidth: Float, val isUp: Boolean)
 
     fun draw(canvas: Canvas?) {
         val brush1 = Paint()
-        brush1.setARGB(255, 255, 0, 0)
-        brush1.style = Paint.Style.STROKE
+        if (isUp)
+            brush1.setARGB(255, 255, 0, 0)
+        else
+            brush1.setARGB(255, 0, 0, 255)
+        brush1.style = Paint.Style.FILL_AND_STROKE
         canvas?.drawRect(rect, brush1)
     }
 

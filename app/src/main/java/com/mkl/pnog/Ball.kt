@@ -36,8 +36,11 @@ class Ball(
         xPos = parentWidth / 2
         yPos = parentHeight / 2
 
-        xSpeed = (10 * cos(random().toFloat()))
-        ySpeed = (10 * sin(random().toFloat()))
+
+        val startAngle = Math.random() * Math.PI * 2
+
+        xSpeed = 10 * Math.cos(startAngle).toFloat()
+        ySpeed = 10 * Math.sin(startAngle).toFloat()
     }
 
     fun update() {
@@ -49,7 +52,9 @@ class Ball(
 
     fun draw(canvas: Canvas?) {
         val brush1 = Paint()
-        brush1.setARGB(255, 255, 0, 0)
+
+        brush1.setARGB(255, 0, 255, 0)
+
         brush1.style = Paint.Style.FILL_AND_STROKE
         canvas?.drawCircle(
             xPos,
@@ -97,7 +102,7 @@ class Ball(
         }
         if (xPos > p.rect.left && xPos < p.rect.right && yPos + radius > p.rect.top) {
             xSpeed *= -1
-            ySpeed *= -1
+            ySpeed *= -1 
             parent.playerCollisionCounter++
         }
 
